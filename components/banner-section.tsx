@@ -64,25 +64,27 @@ export function BannerSection() {
   return (
     <>
       <section className="w-full bg-background">
-        <div className="relative w-full h-screen min-h-[500px] md:min-h-screen overflow-hidden">
-          {(!bannerImage || !imageLoaded) && (
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white px-6 text-center">
-              <div className="h-10 w-10 animate-spin rounded-full border-4 border-neutral-200 border-t-neutral-900" />
-              <p className="mt-5 text-lg font-semibold text-black">Preparing your baby shower invitation</p>
-              <p className="mt-2 max-w-md text-sm text-neutral-600">
-                Just a moment while we load the invitation beautifully.
-              </p>
-            </div>
-          )}
-          <Image
-            src={bannerImage || '/default-banner.jpg'}
-            alt="Baby shower invitation banner"
-            fill
-            className="object-cover"
-            priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-            onLoad={() => setImageLoaded(true)}
-          />
+        <div className="px-0 py-0 md:px-6 md:py-8 xl:px-10 xl:py-10">
+          <div className="relative w-full h-screen min-h-[500px] overflow-hidden bg-white md:min-h-[620px] md:rounded-lg xl:mx-auto xl:h-[calc(100vh-5rem)] xl:max-w-6xl xl:border xl:border-neutral-200">
+            {(!bannerImage || !imageLoaded) && (
+              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white px-6 text-center">
+                <div className="h-10 w-10 animate-spin rounded-full border-4 border-neutral-200 border-t-neutral-900" />
+                <p className="mt-5 text-lg font-semibold text-black">Preparing your baby shower invitation</p>
+                <p className="mt-2 max-w-md text-sm text-neutral-600">
+                  Just a moment while we load the invitation beautifully.
+                </p>
+              </div>
+            )}
+            <Image
+              src={bannerImage || '/default-banner.jpg'}
+              alt="Baby shower invitation banner"
+              fill
+              className="object-cover xl:object-contain"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) calc(100vw - 3rem), 1152px"
+              onLoad={() => setImageLoaded(true)}
+            />
+          </div>
         </div>
 
         <button
